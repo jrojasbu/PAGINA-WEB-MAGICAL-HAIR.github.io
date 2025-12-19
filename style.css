@@ -589,8 +589,8 @@ nav a:hover {
 /* Christmas Gallery */
 .christmas-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
 }
 
 .video-card {
@@ -638,8 +638,8 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
     margin-bottom: 60px;
 }
 
@@ -655,7 +655,8 @@ footer {
 }
 
 .footer-links h4,
-.footer-social h4 {
+.footer-social h4,
+.footer-qr h4 {
     font-size: 16px;
     color: #fff;
     margin-bottom: 25px;
@@ -693,6 +694,33 @@ footer {
 .social-icons a:hover {
     color: var(--primary-color);
     transform: translateY(-3px);
+}
+
+/* Footer QR Section */
+.footer-qr {
+    text-align: center;
+}
+
+.footer-qr img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    padding: 8px;
+    background: #fff;
+    transition: var(--transition);
+    margin-bottom: 10px;
+}
+
+.footer-qr img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(64, 224, 208, 0.4);
+}
+
+.footer-qr p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin: 0;
 }
 
 .footer-bottom {
@@ -821,9 +849,16 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .locations-grid,
     .christmas-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .locations-grid {
         grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .section-padding {
@@ -863,6 +898,7 @@ footer {
 
     .about-grid,
     .services-grid,
+    .christmas-gallery,
     .footer-content {
         grid-template-columns: 1fr;
     }

@@ -235,6 +235,29 @@ nav a:hover {
     position: relative;
     padding-top: 80px;
     padding-bottom: 80px;
+    overflow: hidden;
+}
+
+.hero-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
 }
 
 .hero-overlay {
@@ -243,14 +266,13 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('IMAGES/sede%20magical%20hair.jpg') no-repeat center center/cover;
-    opacity: 0.08;
-    z-index: 0;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 900px;
     padding: 60px 20px;
 }
@@ -260,16 +282,18 @@ nav a:hover {
     line-height: 1.1;
     font-weight: 400;
     margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content h1.magic-text {
     /* Great Vibes font with multi-tone gradient including turquoise */
     font-family: 'Great Vibes', cursive;
-    background: linear-gradient(135deg, #078a7d, #23e6e9, #34918d, #07d18e, #3473d1);
+    background: linear-gradient(135deg, #04f5dd, #7FFFD4, #02f9fd, #40E0D0, #7FFFD4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 2px 10px rgba(64, 224, 208, 0.1);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
     font-size: 90px;
 }
 
@@ -277,24 +301,29 @@ nav a:hover {
     font-size: 18px;
     line-height: 1.8;
     font-weight: 400;
-    color: var(--text-muted);
+    color: #fff;
     margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* Christmas Banner */
 .christmas-message {
     font-size: 20px;
     font-weight: 500;
-    color: var(--primary-dark);
+    color: #fff;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
     padding: 15px 30px;
-    background: rgba(64, 224, 208, 0.1);
+    background: rgba(64, 224, 208, 0.3);
     border-radius: 2px;
     display: inline-block;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(64, 224, 208, 0.5);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Sections */

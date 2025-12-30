@@ -18,45 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenElements = document.querySelectorAll('.animate-on-scroll');
     hiddenElements.forEach(el => observer.observe(el));
 
-    // ==================== MOBILE MENU ====================
-    const menuToggle = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    const body = document.body;
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            body.classList.toggle('menu-open');
-
-            // Toggle icon
-            const icon = menuToggle.querySelector('ion-icon');
-            if (icon) {
-                if (navMenu.classList.contains('active')) {
-                    icon.setAttribute('name', 'close-outline');
-                } else {
-                    icon.setAttribute('name', 'menu-outline');
-                }
-            }
-        });
-
-        // Close menu when clicking a link
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.classList.remove('menu-open');
-
-                // Reset icon
-                const icon = menuToggle.querySelector('ion-icon');
-                if (icon) {
-                    icon.setAttribute('name', 'menu-outline');
-                }
-            });
-        });
-    }
-
     // ==================== BOOKING SYSTEM ====================
 
     const bookingForm = document.getElementById('bookingForm');

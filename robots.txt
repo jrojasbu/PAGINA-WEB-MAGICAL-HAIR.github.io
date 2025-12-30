@@ -1,0 +1,27 @@
+# robots.txt para Magical Hair
+# https://magical-hair.netlify.app/robots.txt
+
+# Permitir acceso a todos los bots de búsqueda
+User-agent: *
+Allow: /
+
+# Bloquear acceso a archivos y carpetas administrativas
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.json$
+
+# Referencia al sitemap
+Sitemap: https://magical-hair.netlify.app/sitemap.xml
+
+# Bots específicos de motores de búsqueda principales
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Tiempo de rastreo (crawl-delay) - opcional
+# Crawl-delay: 10

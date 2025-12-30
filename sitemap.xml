@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://magical-hair.netlify.app/</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://magical-hair.netlify.app/assets/logo.png</image:loc>
+      <image:title>Magical Hair Logo</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Sección Quiénes Somos -->
+  <url>
+    <loc>https://magical-hair.netlify.app/#about</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Sección Servicios -->
+  <url>
+    <loc>https://magical-hair.netlify.app/#services</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Sección Sedes -->
+  <url>
+    <loc>https://magical-hair.netlify.app/#locations</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Sección Trabaja con Nosotros -->
+  <url>
+    <loc>https://magical-hair.netlify.app/#careers</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Sección Momentos Navideños -->
+  <url>
+    <loc>https://magical-hair.netlify.app/#christmas</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

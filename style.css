@@ -830,132 +830,6 @@ footer {
     animation-delay: 4s, 2.5s;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-    .container {
-        padding: 0 30px;
-    }
-
-    .hero-content h1 {
-        font-size: 56px;
-    }
-
-    .hero-content h1.magic-text {
-        font-size: 70px;
-    }
-
-    .about-grid,
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .christmas-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .locations-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .section-padding {
-        padding: 80px 0;
-    }
-
-    .section-title {
-        font-size: 40px;
-        margin-bottom: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        height: auto;
-        padding: 20px 0;
-    }
-
-    .navbar {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 40px;
-    }
-
-    .hero-content h1.magic-text {
-        font-size: 52px;
-    }
-
-    .about-grid,
-    .services-grid,
-    .christmas-gallery,
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .section-padding {
-        padding: 60px 0;
-    }
-
-    .section-title {
-        font-size: 32px;
-        margin-bottom: 40px;
-    }
-
-    .booking-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .booking-info {
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .booking-info h3 {
-        font-size: 22px;
-        margin-bottom: 20px;
-    }
-
-    .booking-benefits li {
-        justify-content: center;
-    }
-
-    .booking-contact {
-        padding: 20px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    /* Fix for Booking Inputs on Mobile */
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        font-size: 16px;
-    }
-
-    .booking-form-wrapper {
-        padding: 30px 20px;
-        box-sizing: border-box;
-    }
-}
-
 /* ==================== BOOKING SECTION ==================== */
 
 .booking-container {
@@ -1173,4 +1047,130 @@ footer {
 
 .admin-access:hover {
     opacity: 1 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 56px;
+    }
+
+    .hero-content h1.magic-text {
+        font-size: 70px;
+    }
+
+    .about-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .christmas-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        font-size: 40px;
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content h1.magic-text {
+        font-size: 52px;
+    }
+
+    .about-grid,
+    .services-grid,
+    .christmas-gallery,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .booking-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .booking-info {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .booking-info h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .booking-benefits li {
+        justify-content: center;
+    }
+
+    .booking-contact {
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Fix for Booking Inputs on Mobile */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .booking-form-wrapper {
+        padding: 30px 20px;
+        box-sizing: border-box;
+    }
 }

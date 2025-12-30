@@ -911,4 +911,231 @@ footer {
         font-size: 32px;
         margin-bottom: 40px;
     }
+
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== BOOKING SECTION ==================== */
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.booking-info {
+    background: var(--bg-secondary);
+    padding: 50px 40px;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    height: fit-content;
+}
+
+.booking-info h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.booking-benefits {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.booking-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.booking-benefits ion-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.booking-contact {
+    background: #fff;
+    padding: 25px;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    margin-top: 30px;
+}
+
+.booking-contact p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+.booking-contact a {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.booking-contact a:hover {
+    color: var(--primary-dark);
+}
+
+.booking-form-wrapper {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.form-group label ion-icon {
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 0;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    transition: var(--transition);
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-actions {
+    margin-top: 10px;
+}
+
+.form-actions .btn-magic {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    padding: 18px 40px;
+}
+
+.form-actions .btn-magic ion-icon {
+    font-size: 20px;
+}
+
+/* Booking Messages */
+.booking-message {
+    margin-top: 30px;
+    padding: 20px 25px;
+    border-radius: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre-line;
+    border: 2px solid;
+    animation: slideIn 0.3s ease;
+}
+
+.booking-message.success {
+    background: rgba(64, 224, 208, 0.1);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.booking-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Validation States */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group select:invalid:not(:placeholder-shown) {
+    border-color: #fbbf24;
+}
+
+.form-group input:valid:not(:placeholder-shown),
+.form-group select:valid {
+    border-color: var(--primary-color);
+}
+
+/* Admin Access Link */
+.admin-access {
+    transition: opacity 0.3s ease;
+}
+
+.admin-access:hover {
+    opacity: 1 !important;
 }

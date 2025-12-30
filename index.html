@@ -208,7 +208,7 @@
                     <li><a href="#christmas">Momentos Navideños</a></li>
                 </ul>
             </nav>
-            <a href="#contact" class="btn-magic">Reservar</a>
+            <a href="#booking" class="btn-magic">Agendar Cita</a>
         </div>
     </header>
 
@@ -383,6 +383,153 @@
             </div>
         </div>
     </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section-padding">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Agenda tu <span class="magic-text">Cita</span></h2>
+            <div class="booking-container animate-on-scroll">
+                <div class="booking-info">
+                    <h3>¿Por qué agendar con nosotros?</h3>
+                    <ul class="booking-benefits">
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Confirmación inmediata</span>
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Elige tu sede preferida</span>
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Selecciona el servicio que necesitas</span>
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Horarios flexibles</span>
+                        </li>
+                    </ul>
+                    <div class="booking-contact">
+                        <p><strong>¿Prefieres llamar?</strong></p>
+                        <p>📍 Sede Bolivia: <a href="tel:+573134310783">313 431 07 83</a></p>
+                        <p>📍 Sede Garcés Navas: <a href="tel:+573134310765">313 431 07 65</a></p>
+                    </div>
+                </div>
+
+                <div class="booking-form-wrapper">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="clientName">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    Nombre Completo *
+                                </label>
+                                <input type="text" id="clientName" name="clientName" required
+                                    placeholder="Ej: María García">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="clientPhone">
+                                    <ion-icon name="call-outline"></ion-icon>
+                                    Teléfono / WhatsApp *
+                                </label>
+                                <input type="tel" id="clientPhone" name="clientPhone" required
+                                    placeholder="Ej: 3001234567">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sede">
+                                    <ion-icon name="location-outline"></ion-icon>
+                                    Sede *
+                                </label>
+                                <select id="sede" name="sede" required>
+                                    <option value="">Selecciona una sede</option>
+                                    <option value="Bolivia">Sede Bolivia</option>
+                                    <option value="Garces Navas">Sede Garcés Navas</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">
+                                    <ion-icon name="cut-outline"></ion-icon>
+                                    Servicio *
+                                </label>
+                                <select id="service" name="service" required>
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="Manicure">Manicure</option>
+                                    <option value="Pedicure">Pedicure</option>
+                                    <option value="Manicure y Pedicure">Manicure y Pedicure</option>
+                                    <option value="Corte Dama">Corte Dama</option>
+                                    <option value="Corte Caballero">Corte Caballero</option>
+                                    <option value="Corte Niño">Corte Niño</option>
+                                    <option value="Tintura">Tintura</option>
+                                    <option value="Mechas">Mechas</option>
+                                    <option value="Balayage">Balayage</option>
+                                    <option value="Peinado Casual">Peinado Casual</option>
+                                    <option value="Peinado para Evento">Peinado para Evento</option>
+                                    <option value="Peinado de Novia">Peinado de Novia</option>
+                                    <option value="Keratina">Keratina</option>
+                                    <option value="Hidratación Profunda">Hidratación Profunda</option>
+                                    <option value="Botox Capilar">Botox Capilar</option>
+                                    <option value="Depilación Cejas">Depilación Cejas</option>
+                                    <option value="Depilación Axilas">Depilación Axilas</option>
+                                    <option value="Depilación Piernas">Depilación Piernas</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="appointmentDate">
+                                    <ion-icon name="calendar-outline"></ion-icon>
+                                    Fecha *
+                                </label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="appointmentTime">
+                                    <ion-icon name="time-outline"></ion-icon>
+                                    Hora *
+                                </label>
+                                <input type="time" id="appointmentTime" name="appointmentTime" required min="08:00"
+                                    max="20:00" step="900">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">
+                                <ion-icon name="document-text-outline"></ion-icon>
+                                Notas Adicionales (Opcional)
+                            </label>
+                            <textarea id="notes" name="notes" rows="4"
+                                placeholder="Ej: Preferencias de color, alergias, etc."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-magic">
+                                <ion-icon name="calendar-outline"></ion-icon>
+                                Agendar Cita
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="bookingMessage" class="booking-message" style="display: none;"></div>
+                </div>
+            </div>
+
+            <!-- Admin Panel Access (Hidden) -->
+            <div class="admin-access" style="text-align: center; margin-top: 40px; opacity: 0.3;">
+                <a href="admin.html" style="color: #64748b; font-size: 12px; text-decoration: none;">
+                    Panel de Administración
+                </a>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Careers Section -->
     <section id="careers" class="section-padding">

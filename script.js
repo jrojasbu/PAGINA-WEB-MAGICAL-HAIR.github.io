@@ -142,21 +142,23 @@ document.addEventListener('DOMContentLoaded', () => {
 ⏰ Hora: *${appointmentTime}*
 📝 Notas: ${notes || 'N/A'}`;
 
-            // Encode message for URL
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            // Encode message for URL (Using full API URL which is often more reliable on iOS)
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
 
             // Show success notification
-            showMessage(`Abriendo WhatsApp para finalizar tu reserva...`, 'success');
+            showMessage(`Conectando con WhatsApp...`, 'success');
 
             // Detect mobile device
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-            // Open WhatsApp immediately (Required for iOS to prevent popup blocking)
             if (isMobile) {
-                // On mobile, using location.href is more reliable to trigger the app
-                window.location.href = whatsappUrl;
+                // Direct navigation for mobile to trigger app deep link
+                // Wrapping in a tiny timeout sometimes helps iOS WebView/Safari process the touch event first
+                setTimeout(() => {
+                    window.location.href = whatsappUrl;
+                }, 50);
             } else {
-                // On desktop, open in new tab
+                // Desktop
                 window.open(whatsappUrl, '_blank');
             }
 

@@ -318,12 +318,15 @@ nav a:hover {
     letter-spacing: 0.5px;
     padding: 15px 30px;
     background: rgba(64, 224, 208, 0.3);
-    border-radius: 2px;
+    border-radius: 25px;
+    /* Bordes redondeados */
     display: inline-block;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(64, 224, 208, 0.5);
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    /* Sombra pronunciada */
 }
 
 /* Sections */

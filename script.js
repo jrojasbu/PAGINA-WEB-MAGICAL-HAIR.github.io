@@ -145,14 +145,22 @@ document.addEventListener('DOMContentLoaded', () => {
             // Encode message for URL
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-            // Show success notification before redirecting
-            showMessage(`Te estamos redirigiendo a WhatsApp para finalizar tu reserva en la sede ${sede}...`, 'success');
+            // Show success notification
+            showMessage(`Abriendo WhatsApp para finalizar tu reserva...`, 'success');
 
-            // Redirect to WhatsApp after a short delay
-            setTimeout(() => {
+            // Detect mobile device
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            // Open WhatsApp immediately (Required for iOS to prevent popup blocking)
+            if (isMobile) {
+                // On mobile, using location.href is more reliable to trigger the app
+                window.location.href = whatsappUrl;
+            } else {
+                // On desktop, open in new tab
                 window.open(whatsappUrl, '_blank');
-                bookingForm.reset();
-            }, 1500);
+            }
+
+            bookingForm.reset();
 
             // Optional: Keep local log if you still want it for the user's browser history
             // (omitted to avoid confusion since it won't sync with admin)

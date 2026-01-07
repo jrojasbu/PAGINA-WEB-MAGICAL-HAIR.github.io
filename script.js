@@ -125,42 +125,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Create appointment object matching Excel format
-            const appointment = {
-                ID: generateUUID(),
-                Sede: sede,
-                Fecha: formatDate(appointmentDate),
-                Hora: formatTime(appointmentTime),
-                Cliente: clientName,
-                Telefono: clientPhone,
-                Servicio: service,
-                Notas: notes || '',
-                Estado: 'Pendiente'
-            };
+            // Determine WhatsApp number based on Sede
+            let whatsappNumber = '573134310783'; // Default to Bolivia
+            if (sede === 'Garces Navas') {
+                whatsappNumber = '573134310765';
+            }
 
-            // Get existing appointments
-            const appointments = getAppointments();
+            // Construct WhatsApp message
+            const message = `Hola, quiero agendar una cita en Magical Hair:
 
-            // Add new appointment
-            appointments.push(appointment);
+📍 Sede: *${sede}*
+👤 Nombre: *${clientName}*
+📱 Teléfono: *${clientPhone}*
+✂️ Servicio: *${service}*
+📅 Fecha: *${appointmentDate}*
+⏰ Hora: *${appointmentTime}*
+📝 Notas: ${notes || 'N/A'}`;
 
-            // Save to localStorage
-            saveAppointments(appointments);
+            // Encode message for URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-            // Show success message
-            showMessage(`¡Cita agendada exitosamente! 
-                        
-📅 ${appointmentDate} a las ${appointmentTime}
-📍 Sede ${sede}
-✂️ ${service}
+            // Show success notification before redirecting
+            showMessage(`Te estamos redirigiendo a WhatsApp para finalizar tu reserva en la sede ${sede}...`, 'success');
 
-Te contactaremos pronto al ${clientPhone} para confirmar tu cita.`, 'success');
+            // Redirect to WhatsApp after a short delay
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                bookingForm.reset();
+            }, 1500);
 
-            // Reset form
-            bookingForm.reset();
-
-            // Log for admin
-            console.log('Nueva cita agendada:', appointment);
+            // Optional: Keep local log if you still want it for the user's browser history
+            // (omitted to avoid confusion since it won't sync with admin)
         });
     }
 

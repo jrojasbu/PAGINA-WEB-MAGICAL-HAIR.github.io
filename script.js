@@ -243,23 +243,77 @@ Te contactaremos pronto al ${clientPhone} para confirmar tu cita.`, 'success');
     console.log('  - clearAllAppointments() - Limpiar todas las citas');
 
     // ==================== SLIDER LOGIC ====================
+    // ==================== SLIDER LOGIC ====================
     const servicesGrid = document.querySelector('.services-grid');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
 
     if (servicesGrid && prevBtn && nextBtn) {
+        // Clone elements for infinite loop (double content)
+        const cards = Array.from(servicesGrid.children);
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            servicesGrid.appendChild(clone);
+        });
+
+        // Auto-play Scroll
+        // Auto-play Scroll
+        let animationId;
+        let scrollAccumulator = 0;
+        const scrollSpeed = 0.5; // Ajustar para suavidad (0.5px por frame = ~30px/seg)
+
+        const startAutoPlay = () => {
+            cancelAnimationFrame(animationId);
+
+            const animate = () => {
+                if (window.innerWidth <= 768) return;
+
+                // Lógica de bucle infinito
+                if (servicesGrid.scrollLeft >= (servicesGrid.scrollWidth / 2)) {
+                    servicesGrid.scrollLeft = 0;
+                }
+
+                // Acumular movimiento
+                scrollAccumulator += scrollSpeed;
+
+                // Aplicar movimiento cuando se acumule al menos 1px
+                if (scrollAccumulator >= 1) {
+                    const pixels = Math.floor(scrollAccumulator);
+                    servicesGrid.scrollLeft += pixels;
+                    scrollAccumulator -= pixels;
+                }
+
+                animationId = requestAnimationFrame(animate);
+            };
+
+            animationId = requestAnimationFrame(animate);
+        };
+
+        // Navigation Buttons
         prevBtn.addEventListener('click', () => {
-            servicesGrid.scrollBy({
-                left: -350, // Card width + gap approx
-                behavior: 'smooth'
-            });
+            cancelAnimationFrame(animationId);
+            servicesGrid.scrollBy({ left: -350, behavior: 'smooth' });
+            setTimeout(startAutoPlay, 3000);
         });
 
         nextBtn.addEventListener('click', () => {
-            servicesGrid.scrollBy({
-                left: 350, // Card width + gap approx
-                behavior: 'smooth'
-            });
+            cancelAnimationFrame(animationId);
+            servicesGrid.scrollBy({ left: 350, behavior: 'smooth' });
+            setTimeout(startAutoPlay, 3000);
+        });
+
+        // Pause on hover
+        servicesGrid.addEventListener('mouseenter', () => cancelAnimationFrame(animationId));
+        servicesGrid.addEventListener('mouseleave', startAutoPlay);
+
+        // Start initial auto-play
+        startAutoPlay();
+
+        // Infinite Loop Reset Check for manual scroll
+        servicesGrid.addEventListener('scroll', () => {
+            if (servicesGrid.scrollLeft >= (servicesGrid.scrollWidth / 2)) {
+                servicesGrid.scrollLeft = servicesGrid.scrollLeft - (servicesGrid.scrollWidth / 2);
+            }
         });
     }
 });

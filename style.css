@@ -361,16 +361,19 @@ nav a:hover {
 .about-text {
     background: #fff;
     padding: 50px 40px;
-    border-radius: 0;
+    border-radius: 20px;
+    /* Borde redondeado */
     text-align: center;
     transition: var(--transition);
     border: 1px solid var(--border-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    /* Sombra acentuada */
 }
 
 .about-card:hover,
 .about-text:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
     border-color: var(--primary-color);
 }
 
@@ -400,22 +403,46 @@ nav a:hover {
 
 /* Services Section */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 30px 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    /* Firefox */
+    -webkit-overflow-scrolling: touch;
+}
+
+.services-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.services-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.services-grid::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
 }
 
 .service-card {
+    min-width: 320px;
+    flex: 0 0 320px;
+    scroll-snap-align: center;
     background: #fff;
-    border-radius: 0;
+    border-radius: 20px;
+    /* Borde redondeado */
     overflow: hidden;
     transition: var(--transition);
     border: 1px solid var(--border-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    /* Sombreado acentuado */
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
     border-color: var(--primary-color);
 }
 
@@ -482,7 +509,8 @@ nav a:hover {
 
 .location-card {
     height: 500px;
-    border-radius: 0;
+    border-radius: 20px;
+    /* Borde redondeado */
     padding: 60px 40px;
     display: flex;
     flex-direction: column;
@@ -494,6 +522,14 @@ nav a:hover {
     color: #fff;
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    /* Sombra acentuada */
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color);
 }
 
 .location-card::before {
@@ -595,15 +631,19 @@ nav a:hover {
 
 .video-card {
     background: #fff;
-    border-radius: 0;
+    border-radius: 20px;
+    /* Borde redondeado */
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    /* Sombreado acentuado */
 }
 
 .video-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color);
 }
 
 .video-wrapper {
@@ -1063,8 +1103,7 @@ footer {
         font-size: 70px;
     }
 
-    .about-grid,
-    .services-grid {
+    .about-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1116,7 +1155,6 @@ footer {
     }
 
     .about-grid,
-    .services-grid,
     .christmas-gallery,
     .footer-content {
         grid-template-columns: 1fr;
@@ -1172,5 +1210,72 @@ footer {
     .booking-form-wrapper {
         padding: 30px 20px;
         box-sizing: border-box;
+    }
+}
+
+/* Services Slider Styles */
+.services-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    /* Ancho máximo para que los botones no queden muy lejos */
+    margin: 0 auto;
+    padding: 0 40px;
+    /* Espacio para los botones */
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--primary-color);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+.scroll-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(64, 224, 208, 0.3);
+    border-color: var(--primary-color);
+}
+
+.scroll-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Adjust services-grid for the new wrapper */
+.services-grid {
+    padding: 30px 5px !important;
+    /* Ajustar padding para que no se corte el shadow */
+}
+
+@media (max-width: 768px) {
+    .services-slider-container {
+        padding: 0;
+    }
+
+    .scroll-btn {
+        display: none;
+        /* Ocultar botones en móvil, usar swipe nativo */
     }
 }

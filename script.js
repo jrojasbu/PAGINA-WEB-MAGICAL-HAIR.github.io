@@ -241,4 +241,25 @@ Te contactaremos pronto al ${clientPhone} para confirmar tu cita.`, 'success');
     console.log('  - exportAppointmentsToCSV() - Exportar citas a archivo de texto');
     console.log('  - getAppointmentCount() - Ver cantidad de citas');
     console.log('  - clearAllAppointments() - Limpiar todas las citas');
+
+    // ==================== SLIDER LOGIC ====================
+    const servicesGrid = document.querySelector('.services-grid');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (servicesGrid && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            servicesGrid.scrollBy({
+                left: -350, // Card width + gap approx
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            servicesGrid.scrollBy({
+                left: 350, // Card width + gap approx
+                behavior: 'smooth'
+            });
+        });
+    }
 });

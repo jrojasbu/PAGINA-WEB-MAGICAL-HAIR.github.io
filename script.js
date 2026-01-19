@@ -93,17 +93,20 @@ document.addEventListener('DOMContentLoaded', () => {
         bookingForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Get form values
-            const clientName = document.getElementById('clientName').value.trim().toUpperCase();
-            const clientPhone = document.getElementById('clientPhone').value.trim();
+            // Get form values and sanitize/normalize
+            const clientName = document.getElementById('clientName').value.trim().toUpperCase()
+                .replace(/[<>]/g, ''); // Basic XSS prevention
+            const clientPhone = document.getElementById('clientPhone').value.trim()
+                .replace(/[^\d]/g, ''); // Keep only digits
             const sede = document.getElementById('sede').value;
             const service = document.getElementById('service').value;
             const appointmentDate = document.getElementById('appointmentDate').value;
             const appointmentTime = document.getElementById('appointmentTime').value;
-            const notes = document.getElementById('notes').value.trim().toUpperCase();
+            const notes = document.getElementById('notes').value.trim().toUpperCase()
+                .replace(/[<>]/g, ''); // Basic XSS prevention
 
-            // Validate phone
-            if (!validatePhone(clientPhone)) {
+            // Validate phone (Colombian format: 10 digits starting with 3)
+            if (!/^3\d{9}$/.test(clientPhone)) {
                 showMessage('Por favor ingresa un número de teléfono válido (10 dígitos, comenzando con 3)', 'error');
                 return;
             }
@@ -193,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 apt.Cliente,
                 apt.Telefono,
                 apt.Servicio,
-                apt.Notas,
+                (apt.Notas || '').replace(/[\t\n\r]/g, ' '), // Clean notes for CSV
                 apt.Estado
             ];
             csvContent += row.join('\t') + '\n';
